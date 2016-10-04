@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{% static 'scribbler/css/scribbler.css' %}">
+    <script src="{% static 'scribbler/js/scribbler-min.js' %}"></script>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,5 +11,9 @@
 </head>
 <body>
     {% block content %}{% endblock %}
+    {% load scribbler_tags %}
+    {% scribble 'header' %}
+        <p>Blip {% now 'Y' %} {{ STATIC_URL|upper }}</p>
+    {% endscribble %}
 </body>
 </html>
